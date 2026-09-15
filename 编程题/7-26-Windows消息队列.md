@@ -50,19 +50,28 @@ EMPTY QUEUE!
 ### 代码实现
 
 ```java
+// 实现原理：使用按优先级升序的优先队列模拟消息队列。PUT 插入消息，GET 取出优先级最小的消息；由于题目保证优先级不重复，不需要额外处理同优先级顺序。
 static class Message {
-    String name;
-    int priority;
-    Message(String name, int priority) { this.name = name; this.priority = priority; }
+  String name;
+  int priority;
+
+  Message(String name, int priority) {
+    this.name = name;
+    this.priority = priority;
+  }
 }
 
 static void processMessages(String[][] commands) {
-    PriorityQueue<Message> q = new PriorityQueue<>(Comparator.comparingInt(m -> m.priority));
-    for (String[] c : commands) {
-        if (c[0].equals("PUT")) q.offer(new Message(c[1], Integer.parseInt(c[2])));
-        else if (q.isEmpty()) System.out.println("EMPTY QUEUE!");
-        else System.out.println(q.poll().name);
-    }
+  // 小顶堆的堆顶保存当前最小元素，用于每次取最优候选。
+  // 小顶堆的堆顶保存当前最小元素，用于每次取最优候选。
+// 小顶堆的堆顶保存当前最小元素，用于每次取最优候选。
+// 小顶堆的堆顶保存当前最小元素，用于每次取最优候选。
+  PriorityQueue<Message> q = new PriorityQueue<>(Comparator.comparingInt(m -> m.priority));
+  for (String[] c : commands) {
+    if (c[0].equals("PUT")) q.offer(new Message(c[1], Integer.parseInt(c[2])));
+    else if (q.isEmpty()) System.out.println("EMPTY QUEUE!");
+    else System.out.println(q.poll().name);
+  }
 }
 ```
 ### 代码流程图

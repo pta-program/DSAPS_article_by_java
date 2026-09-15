@@ -42,21 +42,26 @@ Excel可以对一组纪录按任意指定列排序。现请编写程序实现类
 ### 代码实现
 
 ```java
+// 实现原理：将记录封装为学号、姓名、成绩，根据列号选择比较器，并始终追加学号升序作为次关键字。使用稳定且高效的排序后逐行输出。
 static class Record {
-    String id, name;
-    int score;
-    Record(String id, String name, int score) {
-        this.id = id; this.name = name; this.score = score;
-    }
+  String id, name;
+  int score;
+
+  Record(String id, String name, int score) {
+    this.id = id;
+    this.name = name;
+    this.score = score;
+  }
 }
 
 static void sortRecords(List<Record> a, int column) {
-    Comparator<Record> cmp = column == 1
-        ? Comparator.comparing(r -> r.id)
-        : column == 2
-            ? Comparator.comparing((Record r) -> r.name).thenComparing(r -> r.id)
-            : Comparator.comparingInt((Record r) -> r.score).thenComparing(r -> r.id);
-    a.sort(cmp);
+  Comparator<Record> cmp =
+      column == 1
+          ? Comparator.comparing(r -> r.id)
+          : column == 2
+              ? Comparator.comparing((Record r) -> r.name).thenComparing(r -> r.id)
+              : Comparator.comparingInt((Record r) -> r.score).thenComparing(r -> r.id);
+  a.sort(cmp);
 }
 ```
 ### 代码流程图
