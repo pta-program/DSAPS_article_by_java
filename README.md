@@ -16,7 +16,7 @@ PTA《数据结构与算法题目集（中文版）》的题解与 Java 实现�
 GitHub Pages 启用并完成首次 Actions 部署后，站点地址为：
 
 ```text
-https://zonkidd-shao.github.io/DSAPS_article_by_java/
+https://pta-program.github.io/DSAPS_article_by_java/
 ```
 
 站点提供以下功能：
